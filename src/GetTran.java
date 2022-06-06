@@ -39,7 +39,7 @@ public class GetTran {
     //All transactions groupby category--latest first
     public static void getAllTran(List<Transaction> trans) {
         Map<String, List<Transaction>> collect = trans.stream()
-                .sorted(Comparator.comparing(Transaction::getTranDate))
+                .sorted(Comparator.comparing(Transaction::getTranDate).reversed())
                 .collect(Collectors.groupingBy(Transaction::getCategory));
          System.out.println(collect);
     }
